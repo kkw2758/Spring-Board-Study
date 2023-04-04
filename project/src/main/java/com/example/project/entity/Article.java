@@ -1,8 +1,6 @@
 package com.example.project.entity;
 
-
-import lombok.AllArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +9,13 @@ import javax.persistence.Id;
 
 @Entity
 @AllArgsConstructor
+@Builder
+@Getter
+@Setter
 @ToString
 public class Article {
     @Id
-    @GeneratedValue
+    @GeneratedValue // 1, 2, 3
     private Long id;
     @Column
     private String title;

@@ -1,20 +1,21 @@
 package com.example.project.dto;
 
 import com.example.project.entity.Article;
-import lombok.AllArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 
 @AllArgsConstructor
+@Setter
+@Getter
+@Builder
 @ToString
-public class boardForm {
+public class BoardForm {
+    private Long id;
     private String title;
     private String content;
-
 //    public boardForm(String title, String content) {
 //        this.title = title;
 //        this.content = content;
-//
 //    }
 
 //    @Override
@@ -24,6 +25,7 @@ public class boardForm {
 //                ", content='" + content + '\'' +
 //                '}';
 //    }
+
     public Article toEntity() {
         return new Article(null, title, content);
     }

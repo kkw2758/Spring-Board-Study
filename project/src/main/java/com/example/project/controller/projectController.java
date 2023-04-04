@@ -1,23 +1,18 @@
 package com.example.project.controller;
 
-import com.example.project.dto.boardForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
-public class projectController {
+@Controller // 컨트롤러 선언
+public class ProjectController {
     @GetMapping("/a")
     public String aaa(Model model) {
-        model.addAttribute("username", "경일대");
+        model.addAttribute("username", "김철수");
         return "welcome";
     }
-
-    @GetMapping("/")
     public String index(Model model) {
+        model.addAttribute("username", "김철수");
         return "index";
     }
-
-
 }
