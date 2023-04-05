@@ -27,6 +27,6 @@ public class BoardForm {
 //    }
 
     public Article toEntity() {
-        return new Article(null, title, content);
+        return new Article(id, title, content);
     }
 }

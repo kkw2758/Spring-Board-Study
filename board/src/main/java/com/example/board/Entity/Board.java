@@ -1,5 +1,6 @@
 package com.example.board.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,8 +18,9 @@ public class Board {
     @Column(name = "board_id")
     private Long id;
 
+    @JsonIgnore // https://to-moneyking.tistory.com/m/67
     @ManyToOne(cascade = CascadeType.MERGE, targetEntity = Member.class)
-    @JoinColumn(name = "member_id", updatable = false)
+    @JoinColumn(name = "member", updatable = false)
     private Member member;
 
     @Column(nullable = false)

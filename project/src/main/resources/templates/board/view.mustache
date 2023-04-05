@@ -1,0 +1,25 @@
+{{>include/header}}
+<div id="container my-5">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">제목</th>
+            <th scope="col">내용</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#article}}
+        <tr>
+            <th scope="row"></th>
+            <td>{{title}}</td>
+            <td>{{content}}</td>
+        </tr>
+        {{/article}}
+        </tbody>
+    </table>
+
+    <a href="/board/">글목록</a>
+    <a href="/board/edit/{{article.id}}">글수정</a>
+</div>
+{{>include/footer}}

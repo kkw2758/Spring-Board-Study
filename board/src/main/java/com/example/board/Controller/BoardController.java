@@ -27,6 +27,8 @@ public class BoardController {
         Long id = requestDto.getMemberId();
         Member member = memberService.getMemberById(id).get();
         requestDto.setMember(member);
+        System.out.println(">>" + requestDto.getMember());
+        System.out.println(">>" + requestDto.getMember().getName());
 
         return boardService.create(requestDto);
     }
@@ -39,8 +41,13 @@ public class BoardController {
     //개별 조회
     @GetMapping("/board/{id}")
     public BoardResponseDto searchById(@PathVariable Long id) {
-        return boardService.searchById(id);
+        BoardResponseDto responseDto = boardService.searchById(id);
+        System.out.println("total result >> " + responseDto.getMember());
+        System.out.println(responseDto.getMember().getPassword());
+
+        return responseDto;
     }
+// 2023-04-05 14:00:58.974  WARN 2728 --- [nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Failure while trying to resolve exception [org.springframework.http.converter.HttpMessageNotWritableException]
 
     //전체 조회(목록)
     @GetMapping("/board")

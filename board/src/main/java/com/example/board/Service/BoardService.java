@@ -42,11 +42,13 @@ public class BoardService {
     public BoardResponseDto searchById(Long id) {
         Board board = boardRepository.findById(id).orElseThrow(()
                 -> new IllegalArgumentException("해당 게시물이 존재하지 않습니다."));
+        System.out.println("Name " + board.getMember().getName());
+        System.out.println("Email " + board.getMember().getEmail());
 
         return new BoardResponseDto(board);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly  = true)
     public List<BoardListResponseDto> searchAllDesc() {
         return boardRepository.findAllByOrderByIdDesc().stream()
                 .map(BoardListResponseDto::new)
