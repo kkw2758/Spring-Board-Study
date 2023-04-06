@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public interface ArticleService {
     BoardForm save(BoardForm dto);
-
+    void delete(Long id);
     // Dto를 Entity로
     default Article dtoToEntity(BoardForm dto) {
         Article article = Article.builder().id(dto.getId())

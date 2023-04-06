@@ -4,7 +4,6 @@ import com.example.project.dto.BoardForm;
 import com.example.project.entity.Article;
 import com.example.project.repository.ArticleRepository;
 import com.example.project.service.ArticleService;
-import com.example.project.service.ArticleServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -81,5 +81,18 @@ public class BoardController {
         }
 
         return "redirect:/board/" + articleEntity.getId();
+    }
+
+    @GetMapping("/board/delete/{id}")
+    public String board_delete(@PathVariable Long id, RedirectAttributes rttr) {
+        log.info("del ok?");
+        Article target = articleRepository.findById(id).orElse(null);
+
+        if (target != null) {
+            articleService.delete(id);
+            rttr.addFlashAttribute("msg", "삭제가 완료 되었습니다.");
+        }
+
+        return "redirect:/board";
     }
 }

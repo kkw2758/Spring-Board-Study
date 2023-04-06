@@ -21,5 +21,10 @@
 
     <a href="/board/">글목록</a>
     <a href="/board/edit/{{article.id}}">글수정</a>
+    <a href="/board/delete/{{article.id}}">글삭제</a>
+
+<!--    //댓글 삽입-->
+    {{>comments/_comments}}
+
 </div>
 {{>include/footer}}

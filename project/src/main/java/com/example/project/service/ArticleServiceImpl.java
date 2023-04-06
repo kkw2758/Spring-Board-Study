@@ -58,4 +58,9 @@ public class ArticleServiceImpl implements ArticleService{
 
         return boardForm;
     }
+
+    @Override
+    public void delete(Long id) {
+        articleRepository.deleteById(id);
+    }
 }

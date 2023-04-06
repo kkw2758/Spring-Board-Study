@@ -18,7 +18,7 @@ public class Board {
     @Column(name = "board_id")
     private Long id;
 
-    @JsonIgnore // https://to-moneyking.tistory.com/m/67
+//    @JsonIgnore // https://to-moneyking.tistory.com/m/67
     @ManyToOne(cascade = CascadeType.MERGE, targetEntity = Member.class)
     @JoinColumn(name = "member", updatable = false)
     private Member member;
