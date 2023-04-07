@@ -42,7 +42,7 @@ public class ArticleServiceImpl implements ArticleService{
                 entity.setContent(dto.getContent());
                 article = articleRepository.save(entity);
             }
-        } else {
+        } else { // dto.getId가 null 이면
             article = dtoToEntity(dto);
             article = articleRepository.save(article); // 반환 값은 Entity
         }

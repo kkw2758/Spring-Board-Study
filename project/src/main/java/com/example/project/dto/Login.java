@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Builder
 @ToString
-public class LoginD {
+public class Login {
     private String id;
     private String password;
 }

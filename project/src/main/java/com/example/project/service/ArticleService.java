@@ -2,6 +2,7 @@ package com.example.project.service;
 
 import com.example.project.dto.BoardForm;
 import com.example.project.entity.Article;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
